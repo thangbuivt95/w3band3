@@ -1,0 +1,402 @@
+<!-- dự án mẫu: https://www.w3schools.com/w3css/tryw3css_templates_band.htm# -->
+<!-- muốn đọc thông tin thuộc tính nào thì lên google gõ: "CSS" + "tên thuộc tính" + "property" -> gợi ý là trang w3school thì vào để đọc-->
+<!-- coi lại video Header CSS (video 37) 5 phút đầu để coi hướng dẫn bấm tổ hợp phiếu/thao tác làm sao cho nhanh -->
+<!-- 
+    1. di chuyển dòng code lên xuống: ALt + mũi tên lên xuống
+    2. - chọn các thành phần giống nhau: bôi đen phần muốn chọn xong ctrl + d, mỗi lần ấn nó sẽ chọn thêm 1 thằng
+        - Cách 2: bôi đen phần muốn chọn xong bấm Ctrl + shift + L thì nó sẽ chọn hết tất cả các thành phần giống vậy
+    3. Sau khi đã bôi đen các thứ muốn chọn ở phần 2 thì bấm mũi tên sang phải -> rồi bấm alt + shift + mũi tên sang phải -> nó sẽ chọn hết các thành phần trong ngoặc kép    
+    4. Muốn thêm dấu # đằng trước 3 chữ ở dưới: bước 1 để trỏ ở chữ content -> giữ alt xong click vào footer -> tương tự với các dòng còn lại
+        content
+        footer
+        footer
+    5. Làm giống phần 4 thì trỏ chuột đang ở đầu mà muốn nó di chuyển xuống cuối -> bấm nút END hoặc bấm ctrl + mũi tên sang phải
+ -->
+<!-- mới vào project thì để ra được đoạn bên dưới bấm như sau:" bấm ! xong bấm tab 1 cái là xong" 
+    <!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	6. Để ra như bên dưới thì ấn: .place-list>.place-item xong tab 1 cái
+	<div class="place-list">
+           <div class="place-item"></div>
+        </div>
+	
+	7.Để ra được cái thẻ như bên dưới chỉ cần ấn #wrapper xong tab, còn muốn là class thì bấm .wrapper
+        <div id="wrapper"></div> 
+
+	8. để được như bên dưới thì bấm :"ul#nav>li*5>a" rồi enter or tab 
+            <ul id="nav">
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+
+	9. Hover làm mờ ảnh .place-img:hover{
+    		opacity: 0.6; /* hover vào làm mờ ảnh */
+}
+-->
+
+<!-- Update description:
+    - 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Band</title>
+    <link rel="icon" href="./asset/img/icon of page.png" type="image/x-icon" /> <!--cái này để đổi icon trên tab web, lên google search: link favicon html xong vô trang stackoverflow copy link này về-->
+    <link rel="stylesheet" href="./asset/css/style_theband.css"> <!-- Cách viết này chỉ sử dụng được cho thư mục nằm cùng cấp -->
+    <!-- <link rel="stylesheet" href="./asset/css/responsive.css"> css của responsive phải đặt sau thg css chính, do đặt sau sẽ được ưu tiên hơn -->
+    <link rel="stylesheet" href="./asset/font/themify-icons/themify-icons.css"> <!-- thư viện có icon search; cái này là themify icon, vào trang web của nó xong kéo xuống dưới sẽ thấy tên class của icon đó  -->
+    <!-- để ktra link được hay chưa thì vào web chuột phải ->inspect -> mở phần source xem có thấy file link chưa -->
+
+</head>
+<body>
+    
+    <div id="main"> <!-- thẻ div này là cái bự nhất để bao toàn bộ chương trình-->
+        <div id="header"> <!--thẻ div con, phân tích có bao nhiêu thành phần sẽ có bấy nhiêu thẻ div con-->
+            <!-- bên dưới la tạo navigation -->
+            <!-- Begin: Nav -->
+            <ul id="nav">
+                <li><a href="#">Home</a></li>a <!-- quay về trang chủ -->
+                <li><a href="#band">Band</a></li> <!-- để link ở phần href thì nó tới link đó, còn để #id thì nó tìm tới id đó, còn để # ko thì nó về đầu trang, ko để gì thì nó load lại trang khi bấm vào -->
+                <li><a href="#tour">Tour</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="#">
+                        More
+                        <!-- ra "<i class="ti-angle-down"></i>" thì ấn i.ti-angle-down xong tab
+                            thẻ i bên dưới để tạo dấu mũi tên xuống bên cạnh chữ more
+                            do dấu mũi tên bên cạnh chữ more nên mình đặt thẻ i ngay cạnh more luôn
+                            dùng icon thì dùng thẻ i nó hợp lý hơn do i thì mình tưởng tượng là icon (nhưng thật ra thẻ i là thẻ in nghiêng), thật ra thì dùng thẻ gì cũng dc  -->
+                        <i class="nav-arrow-down ti-angle-down"></i> <!-- nav arrow down là tên class mình đặt để đi css còn ti angel down mới là dấu mũi tên đi xuống-->
+                    </a>
+                    <ul class="subnav">
+                        <li><a href="#">Merchandise</a></li>
+                        <li><a href="#">Extras</a></li>
+                        <li><a href="#">Media</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- End: Nav -->
+
+            <!-- Mobile menu button -->
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
+            </div>
+            
+            <!-- Begin: search button --> <!--để trỏ chuột ở đây bấm ctrl+C rồi Ctrl+v là nó tự copy xuống dòng, ko cần bôi đen hay xuống dòng j cả-->
+            <div class="search-btn"> <!-- tạo icon search -->
+                <i class="search-icon ti-search"></i>
+            </div>
+
+            
+
+        </div>
+
+
+        <div id="slider">
+            <div class="text-content"> <!-- Tạo dòng chữ đè lên hình -->
+                <h2 class="text-heading">Chicago</h2>
+                <div class="text-description">A night we won't forget</div>
+            </div>
+        </div>
+
+        <!-- begin: content -->
+        <div id="content">
+            <!-- bao gồm:
+                1. About
+                2. Tour
+                3. Contact
+                4. Image
+             -->
+             <!-- About section -->
+             <div id="band" class="content-section">
+                <h2 class="section-heading">THE BAND</h2>
+                <p class="section-sub-heading">We love music</p>
+                <p class="about-text">
+                    We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <div class="members-list">
+                    <!-- <div class="member-item col col-third"> -->
+                    <div class="text-center col col-third s-col-full mt-32">    
+                        <p class="member-name">Name</p>
+                        <img src="./asset/img/ava1.jpg" alt="" class="member-img">
+                    </div>
+
+                    <!-- <div class="member-item col col-third"> -->
+                    <div class="text-center col col-third s-col-full mt-32">    
+                        <p class="member-name">Name</p>
+                        <img src="./asset/img/ava1.jpg" alt="" class="member-img">
+                    </div>
+
+                    <!-- <div class="member-item col col-third"> -->
+                    <div class="text-center col col-third s-col-full mt-32">    
+                        <p class="member-name">Name</p>
+                        <img src="./asset/img/ava1.jpg" alt="" class="member-img">
+                    </div>
+                   
+                    <div class="clear"></div>
+                </div>
+                
+             </div>
+
+             <!-- Tour section -->
+             <div id="tour" class="tour-section">
+                 <div class="content-section">
+                    <h2 class="section-heading text-white">TOUR DATES</h2> <!-- viết vầy là có 2 class -->
+                    <p class="section-sub-heading text-white">Remember to book your tickets!</p>
+
+                    <!-- list bán vé sep, oct,... do là list nên dùng thẻ ul li sẽ hợp lý -->
+                    <!-- Ticket section -->
+                    <ul class="tickets-list">
+                        <li>September <span class="sold-out">Sold out</span></li> <!-- thẻ span để tạo ô giống chữ sold out bên web mẫu-->
+                        <li>October <span class="sold-out">Sold out</span></li>
+                        <li>November <span class="quantity">3</span></li>
+                    </ul>
+
+                    <!-- Places section -->
+                    <div class="place-list row">
+                        <!-- <div class="place-item"> -->
+                        <div class="col-third col s-col-full mt-16"> <!-- mt 16 thêm vào từ bài 58 -->
+                            <img src="./asset/img/place/place1.jpg" alt="New York" class="place-img">
+                            <div class="place-body">
+                                <h3 class="place-heading">New York</h3>
+                                <p class="place-time">Fri 27 Nov 2016  </p>
+                                <p class="place-des">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>         
+                                <!-- <button class="place-buy-btn js-buy-ticket">Buy Tickets</button> <!-- dùng thẻ a như bên dưới thì khi bấm vào nút đó nó sẽ trôi lên đầu trang, để khắc phục thì mình dùng thẻ button 
+                                đặt thêm class js-buy-ticket để viết js cho khi click vào bật modal lên-->
+                                <!-- <a href="#" class="place-buy-btn">Buy Tickets</a> dấu # trong chỗ href được hiểu là khi mình bấm vào nút thì nó sẽ ko chuyển đi đâu, còn để link thì nó sẽ move vào link đó -->
+                                <button class="btn js-buy-ticket s-full-width">Buy Tickets</button> <!-- học tới bài 50 thay class btn thành class dùng chung, ko dùng riêng nữa-->
+                            </div>
+                        </div>
+
+                        <!-- <div class="place-item"> -->
+                        <div class="col-third col s-col-full mt-16"> <!-- mt 16 thêm vào từ bài 58 -->
+                            <img src="./asset/img/place/place2.jpg" alt="Paris" class="place-img">
+                            <div class="place-body">
+                                <h3 class="place-heading">Paris</h3>
+                                <p class="place-time">Sat 28 Nov 2016 </p> 
+                                <p class="place-des">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <!-- <button class="place-buy-btn js-buy-ticket">Buy Tickets</button> <!-- dùng thẻ a như bên dưới thì khi bấm vào nút đó nó sẽ trôi lên đầu trang, để khắc phục thì mình dùng thẻ button 
+                                đặt thêm class js-buy-ticket để viết js cho khi click vào bật modal lên-->         
+                                <!-- <a href="#" class="place-buy-btn">Buy Tickets</a> dấu # trong chỗ href được hiểu là khi mình bấm vào nút thì nó sẽ ko chuyển đi đâu, còn để link thì nó sẽ move vào link đó -->
+                                <button class="btn js-buy-ticket s-full-width">Buy Tickets</button> <!-- học tới bài 50 thay class btn thành class dùng chung, ko dùng riêng nữa-->
+                            </div>
+                        </div>
+
+                        <!-- <div class="place-item"> -->
+                        <div class="col-third col s-col-full mt-16"> <!-- mt 16 thêm vào từ bài 58 -->
+                            <img src="./asset/img/place/place3.jpg" alt="San Francisco" class="place-img">
+                            <div class="place-body">
+                                <h3 class="place-heading">San Francisco</h3>
+                                <p class="place-time">Sun 29 Nov 2016 </p>
+                                <p class="place-des">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <!-- <button class="place-buy-btn js-buy-ticket">Buy Tickets</button> <!-- dùng thẻ a như bên dưới thì khi bấm vào nút đó nó sẽ trôi lên đầu trang, để khắc phục thì mình dùng thẻ button 
+                                đặt thêm class js-buy-ticket để viết js cho khi click vào bật modal lên-->         
+                                <!-- <a href="#" class="place-buy-btn">Buy Tickets</a> dấu # trong chỗ href được hiểu là khi mình bấm vào nút thì nó sẽ ko chuyển đi đâu, còn để link thì nó sẽ move vào link đó -->
+                                <button class="btn js-buy-ticket s-full-width">Buy Tickets</button> <!-- học tới bài 50 thay class btn thành class dùng chung, ko dùng riêng nữa-->
+                            </div>
+                        </div>
+                        <!-- <div class="clear"></div> sửa lỗi ko ôm hết được content của float -->
+                        <!-- thay vì viết thẻ clear thì làm thẻ giả phần css là được, coi bài pseudo element sẽ hiểu (làm ở phần row::after bên css) -->
+                    </div>
+                </div>
+            </div>
+                
+
+             <!-- Begin: Contact section -->
+             <div id="contact" class="content-section">
+                <h2 class="section-heading">CONTACT</h2>
+                <p class="section-sub-heading">Fan? Drop a note!</p>
+
+                <div class="row contact-content">
+                    <div class="col col-half contact-info s-col-full">
+                        <p><i class="ti-location-pin"></i>Chicago, US</p>
+                        <p><i class="ti-mobile"></i>Phone: <a href="tel:+00 151515">+00 151515</a></p>
+                        <p><i class="ti-email"></i>Email: <a href="mailto:mail@mail.com">mail@mail.com</a></p>
+                    </div>
+
+                    <div class="col col-half contact-form s-col-full">
+                        <form action="">
+                            <div class="row">
+                                <div class="col col-half s-col-full">
+                                    <input type="text" name="" placeholder="Name" required id="" class="form-control"> <!-- input:text.form-control viết vầy để ra-->
+                                    <!-- có required để lúc mình ko điền gì mà bấm send thì nó sẽ hiện yêu cầu điền -->
+                                </div>
+
+                                <div class="col col-half s-col-full s-mt-8">
+                                    <input type="email" name="" placeholder="Email" required id="" class="form-control"> <!-- input:text.form-control viết vầy để ra-->
+                                    <!-- có required để lúc mình ko điền gì mà bấm send thì nó sẽ hiện yêu cầu điền -->
+                                </div>
+                                <!-- <div class="clear"></div> sử dụng float left phải có thg này để tránh lỗi thẻ cha ko ôm dc hết thẻ con -->
+                                <!-- thay vì viết thẻ clear thì làm thẻ giả phần css là được, coi bài pseudo element sẽ hiểu (làm ở phần row::after bên css) -->
+                            </div>
+
+                            <div class="row mt-8">
+                                <div class="col col-full">
+                                    <input type="text" name="" placeholder="Message" required id="" class="form-control"> <!-- input:text.form-control viết vầy để ra-->
+                                    <!-- có required để lúc mình ko điền gì mà bấm send thì nó sẽ hiện yêu cầu điền -->
+                                </div>
+                            </div>
+
+                            <!-- <input class="mt-16 form-submit-btn" type="submit" value="SEND"> -->
+                            <input class="contact-submit-btn mt-16 btn pull-right s-full-width" type="submit" value="SEND"> <!-- học tới bài 50 sử dụng class btn chung-->
+
+                        </form>
+                    </div>
+                </div>
+             </div>
+             <!-- End: Contact section -->
+            
+             <div class="map-section">
+                 <img src="./asset/img/map.jpg" alt="map">
+             </div>
+        </div>
+        <!-- end content -->
+
+        <div id="footer">
+            <div class="social-list">
+                <a href=""><i class="ti-facebook"></i></a>
+                <a href=""><i class="ti-instagram"></i></a>
+                <a href=""><i class="ti-youtube"></i></a>
+                <a href=""><i class="ti-pinterest-alt"></i></a>
+                <a href=""><i class="ti-twitter"></i></a>
+                <a href=""><i class="ti-linkedin"></i></a>
+            </div>
+            <p class="copyright">Powered by <a href="">w3.css</a></p>
+        </div>
+
+    </div>
+
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
+            <div class="modal-close js-modal-close">
+                <i class="ti-close"></i> <!-- hình dấu gạch chéo đóng modal -->
+            </div>
+
+            <!-- thẻ header tương tự thẻ div, chẳng qua là để lúc search dễ dàng hơn -->
+            <header class="modal-header">
+                <i class="modal-heading-icon ti-bag"></i> <!-- hình cái cặp -->
+                Tickets
+            </header>
+
+            <div class="modal-body">
+                <label for="ticket-quantity" class="modal-label"> <!-- mục đích của cái for là để khi người dùng click vào label nó sẽ cho con trỏ chuột xuống ô input luôn, muốn vậy thì mình đặt id ở phần input xong copy tên id vào phần for là xong (coi video 46 buy ticket modal phut 31:50 nếu muốn xem lại cách làm)-->
+                    <i class="ti-shopping-cart"></i>
+                    Tickets, $15 per person
+                </label>
+                <input id="ticket-quantity" type="text" class="modal-input" placeholder="How many?">
+
+                <label for="ticket-email" class="modal-label">
+                    <i class="ti-user"></i>
+                    Send to
+                </label>
+                <input id="ticket-email" type="email" class="modal-input" placeholder="Enter email...">
+
+                <button id="buy-tickets">
+                    Pay
+                    <i class="ti-check"></i>
+                </button>
+            </div>
+
+            <footer class="modal-footer"> <!-- tương tự thẻ div -->
+                <p class="modal-help">Need <a href="">help?</a> </p> <!-- có link ở chỗ chữ help nên có thẻ a -->
+            </footer>
+        </div>
+    </div>
+
+    <!-- js được viết trong thẻ script -->
+    <!-- js của modal -->
+    <script>
+        const buyBtns = document.querySelectorAll('.js-buy-ticket') //class thì dùng . còn id thì dùng #
+        // muốn biết lấy được hay chưa thì mở inspec (dev tool) trên web xong qua tab console -> paste tên biến xong ấn enter
+        // muốn lấy cái gì ở trang web là phải đi qua document
+        // querySelectorAll là lấy tất cả những thằng có class trùng với class mình bỏ vào đây
+        // sau khi viết như trên thì cả 3 nút có class js-buy-ticket sẽ dc lưu vào biến buyBtns
+        const modal = document.querySelector('.js-modal')
+        const modalClose = document.querySelector('.js-modal-close')
+        const modalContainer = document.querySelector('.js-modal-container')
+
+            //hàm hiển thị modal
+        function showBuyTickets() {
+            // alert("hello world") muốn test thì viết hàm này
+            modal.classList.add('open') //biến modal -> tìm trong danh sách tất cả class (classList) -> add vào cho tao -> add cho tao class open
+        }
+
+            //hàm tắt modal
+        function hideBuyTickets() {
+            // alert("hello world") muốn test thì viết hàm này
+            modal.classList.remove('open') //biến modal -> tìm trong danh sách tất cả class (classList) -> add vào cho tao -> add cho tao class open
+        }
+
+        for(const buyBtn of buyBtns) { //tạo 1 biến mới buyBtn để lưu từng nút trong 3 nút của buyBtns (biến bự)
+            buyBtn.addEventListener('click', showBuyTickets) // khi click vào nút buy ticket thì hàm showbuytickets sẽ được gọi
+        }
+
+        modalClose.addEventListener('click', hideBuyTickets) //click vào dấu gạch chéo thì đóng
+
+        modal.addEventListener('click', hideBuyTickets)
+
+        modalContainer.addEventListener('click', function (event) { //phải có hàm này thì khi click vào phần modal nó mới ko đóng
+            //ý nghĩa của hàm này là khi click vào phần modal thì stop việc lan truyền, ko có nó thì khi click vào modal nó sẽ lan truyền hàm đóng đến tất cả thg con của modal)
+            event.stopPropagation()
+        })
+    </script>
+    <!-- end js modal -->
+
+    <!-- begin js of mobile responsive: bài 55 -->
+    <script>
+        var header = document.getElementById('header'); // lấy id header
+        //console.log(header); muốn test thì viết vầy, qua tab console
+        var mobilemenu = document.getElementById('mobile-menu'); //JS ko xài dấu gạch ngang ở tên biến được
+        var headerHeight = header.clientHeight; //lấy chiều cao của thẻ header
+        
+        // Đóng mở mobile menu
+        mobilemenu.onclick = function() {//đoạn code trong này sẽ được chạy khi click vào mobilemenu
+             var isClosed = header.clientHeight === headerHeight //xem chiều cao của thẻ header có bằng headerHeight ko, gán vào biến isClosed
+             //ban đầu chỗ headerHeight để = 46 nhưng nếu như vậy thì hàm này chỉ so sánh với số 46, sau này lỡ mà đổi css của header ko còn = 46 nữa là lỗi ngay, nên tốt nhất gán nó vào biến headerHeight thì sau này có đổi số nào nó vẫn chạy
+             if (isClosed) { // là kiểu isclosed = true á
+                header.style.height = 'auto'; // chuyển height của thẻ header = auto
+             }
+             else{
+                 header.style.height = null; //null vậy thì nó sẽ về thuộc tính mặc định của header là 46px
+             }
+        }
+        // End đóng mở mobile menu 
+
+        //Tự động đóng menu khi chọn 1 phần tử trong menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]'); //lấy tất cả những thẻ a có href = #
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i];
+            
+            menuItem.onclick = function(event) {
+                var isParentmenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav'); //nếu menuitem có thành phần ace liền kề (kiểu là thẻ ul, cấu trúc kiểu có ace) và ace liền kề đó có class là subnav thì biến parentmenu đúng
+                //this tương đương với menuItem do nó viết trong menuitem nhưng thay this = menuitem thì lại bị lỗi, chưa hiểu tại sao
+                if (!isParentmenu) { //nếu parentmenu false
+                    header.style.height = null; //ẩn menu
+                }
+                else{
+                    event.preventDefault(); //ấn vào more ko bị trôi lên đầu trang nữa, bình thường bấm vào more là nó hiểu href = # (default) nên giờ mình prevent default
+                }
+               
+            }
+        }
+        //End tự động đóng khi chọn 1 phần tử trong menu
+    </script>
+    <!-- end js of mobile responsive: bài 55  -->
+
+</body>
+</html>
+
+
+
+

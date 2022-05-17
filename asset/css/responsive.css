@@ -1,0 +1,31 @@
+/* Update description:
+    - add nav to mobile
+
+*/
+
+/* PC */
+@media (min-width: 1024px){
+    
+} 
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px){
+    
+} 
+
+/* Mobile */
+@media (max-width: 739px){
+    #nav{
+        display: block; /* để khoảng bao menu (home, tour,...) bự hơn để người dùng chỉ cần ấn bên ngoài là ăn, ko cần ấn chính xác chữ trong menu */
+        /* nhưng khi viết vầy thì ông nav chiếm hết chỗ của ông menu button -> làm mất nút menu -> dùng thuộc tính position để làm nút menu ở trên nav */
+    }
+    
+    #nav > li {
+        display: block;   /* css cũ đang là inline block để thành hàng ngang, giờ chuyển thành block cho thành hàng dọc */
+
+    }
+
+    #header .search-btn{
+        display: none; /* ẩn nút search trên mobile */
+    }  
+}

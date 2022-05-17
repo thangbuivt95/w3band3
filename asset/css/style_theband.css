@@ -1,0 +1,802 @@
+/* Reset CSS: các bước làm bên dưới là để reset CSS -> là bước setup ban đầu */
+/* * là selector, nó sẽ select lên tất cả các thẻ trong file html */
+/* 
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    } 
+*/
+/* thứ tự làm css:
+1. từ ngoài vào trong.
+2. từ trên xuống dưới.
+3. Tổng quan đến chi tiết.
+ */
+
+
+/* 
+    1. Vị trí?
+    2. Kích thước?
+    3. Màu sắc?
+    4. Kiểu dáng (kiểu chữ,hình tròn/vuông...)?
+    đặt các câu hỏi trên cho header, slider,...
+*/
+
+
+/* Update description:
+    - Update #slider .text-description
+    - Update #slider phần url
+    - Update phần responsive
+    
+*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+html{
+  scroll-behavior: smooth; /* thay vì khi bấm chữ tour nó nhảy bụp phát xuống phần tour thì có css này nó sẽ cuộn từ từ xuống nhìn xịn xò hơn */  */
+  font-family: Arial, Helvetica, sans-serif;  /* 2 cái đầu là font, cái thứ 3 là chuẩn font */
+}
+
+/* common: phần dùng chung */
+.clear{ /* đặt nó ở đây do nó là class chung dùng nhiều */
+    clear: both; /* đây là cách 2 để giải quyết lỗi khi sử dụng float của members-items */
+}
+
+.text-white{
+    color: #fff !important; /* thẻ CSS dùng cho những chỗ cần chữ màu trắng */
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.pull-right{
+    float: right !important;
+}
+
+.btn{
+    color: #fff;
+    background-color: #000;
+    text-decoration: none; /* bỏ gạch chân */
+    padding: 11px 16px; /* tự ước lượng, coi lại video Tour place css (video 45) phút 19: 30 để coi sao ra được số này, cái này là tạo độ rộng cao của cái box */
+    display: inline-block; /* để box ko bị đè lên description */
+    margin-top: 15px; /* soi trên web */
+    border: none; /* này là thuộc tính thêm vào, thẻ input/button mặc định là có cái border nên mình sẽ thấy có cái viền bên ngoài, để bỏ viền đó thì cần thuộc tính này*/
+    -webkit-appearance: none; /* bỏ trạng thái mặc định do trình duyệt add vào đê ko lỗi trên iphone */
+    /* trình duyệt safari thì viết webkit.. còn các trình duyệt khác chỉ cần appreance: none là dc */
+}
+
+.btn:hover{
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer; /* thêm tại bài 50 */
+}
+
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
+    /* 2 thg left right ở trên là của class place-list, mình đang học bài row-column layout (bài 48) để tạo thuộc tính chung dùng đỡ fai đi css lại nên mình thấy 2 thuộc tính này là của hàng nên mình bỏ lên đây */
+}
+
+.row::after { /* viết vầy thì thẻ giả đặt ở cuối */
+    content: "";
+    display: block; /* muốn clear = both thì phải có display block này mới được */
+    clear: both;
+}
+
+.col{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    /* mấy thg trên là của place-item, mình thấy có các thg đó là thuộc column nên bỏ vào đây */
+}
+
+.col-third{
+    width: calc(100%/3);
+}
+
+.col-half{
+    width: 50%;
+}
+
+.col-full{
+    width: 100%;
+}
+
+.mt-8{ /* viết tắt của margin-top*/
+    margin-top: 8px !important;
+}
+
+.mt-16{ /* viết tắt của margin-top*/
+    margin-top: 16px !important;
+}
+
+.mt-32{ /* viết tắt của margin-top*/
+    margin-top: 32px !important;
+}
+
+/* main */
+#main {
+/* vị trí: sau body
+    kích thước: chứa cả website -> bằng khung trình duyệt
+    màu sắc: chứa hết website -> ko cần màu sắc or màu trắng
+    kiểu dáng: cũng ko có kiểu dáng gì
+    --> ko có gì -> chưa biết code gì thôi từ từ*/
+    
+    /* overflow:hidden thêm vào từ bài 54, sửa khoảng trắng với viền khi hiện trên ipad.
+    lỗi này đã sửa ở phần content-section, đây là cách 2, trường hợp ko tìm được lỗi ở đâu thì cứ vào thẻ to nhất gõ lệnh overflow này là xong, cái gì chui ra ngoài nó là nó hide 
+    cách này ko fai cách tối ưu nhất so với cách làm ở content-section */
+}
+
+#header {
+/*  1. Vị trí?: trong main
+    2. Kích thước?: soi 2 thứ
+        - width: bằng kích thước trình duyệt
+        - height: coi video "Header CSS" phút thứ 9:30 để biết cách soi chiều cao -> biết được nó đang là 46px chiều cao
+    3. Màu sắc?: màu đen
+    4. Kiểu dáng? */
+    height: 46px; /* từ bài 55 mobile responsive, khi có cái này thì vùng đen chỉ ôm chữ home thôi, còn ko có cái này thì vùng đen sẽ rộng ra ôm hết các menu còn lại luôn -> khi vùng đen hiện ra thì các menu khác chưa bị overflow nên sẽ hiện ra */
+    background-color: #000; /* #000 là màu đen*/
+    position: fixed; /* kéo trang thì header vẫn đứng yên
+    khi có position thì sẽ mất tính chất kế thừa kích thước trình duyệt của thẻ block -> chiều rộng của header thu hẹp lại = chiều rộng của content thôi  */
+    top:0;
+    left:0;
+    /* top left 0 để cho chắc chắn header dính sát mép trình duyệt, tuy mặc định đã vậy rồi nhưng tùy trình duyệt mà hên xui nên làm cho chắc */
+    right:0; /* để thanh header dài sang sát mép bên phải của trình duyệt */
+    z-index:1; /* để header đứng trên tấm hình, ko là sẽ bị hình đè, còn giá trị 1 chưa được thì tiếp tục tăng giá trị lên */
+    /* overflow: hidden; thêm vào từ bài 55 để ẩn mấy thg khác, chỉ hiện home thôi */
+    /* từ bài 57 lại phải bỏ thg overflow do có nó thì nó ẩn submenu trên pc luôn, mà bỏ nó vào phần responsive */
+}
+
+#nav{
+    display: inline-block; /* khoảng chữ tới đâu thì độ rộng của box của nó tới đó thôi, chừa chỗ icon search, nhưng chỉ mỗi cái này thì thg search icon vẫn còn bự, nên chưa chui lên bên trên được nên fai làm cho thg search nhỏ lại luôn */
+}
+
+#nav, .subnav{
+    list-style-type: none; /* bỏ dấu chấm/gạch đầu dòng của thẻ ul*/
+}
+
+#nav > li {
+    display: inline-block;
+    /* bỏ inline block từ nav li lên đây vì chỉ muốn li cấp 1 chịu ảnh hưởng thôi, từ đó thì thẻ nav li a có thể sửa thành block thôi để vùng sáng của thẻ a cấp 2 (merchandise,...) đc vùng sáng full */
+}
+#nav li{
+    /* display: inline-block; */
+    /* inline là trên 1 hàng, block là giữ tính chất khối để set up chung
+    thuộc tính block có tính chất là kế thừa chiều ngang của thẻ chứa nó */
+    position: relative; /* để chọn thẻ li làm thẻ cha còn thẻ subnav làm thẻ con*/
+    cursor: pointer; /* chuyển con trỏ chuột thành hình bàn tay khi trỏ chuột vào các thẻ a cấp 1 */
+}
+#nav > li > a { /* css cho thẻ a là con trực tiếp của thẻ li là con trực tiếp của thẻ nav --> chỉ có thẻ a cấp 1 (thẻ của home, band,...) bị ảnh hưởng, còn thẻ a cấp 2 (merchadise,...) ko bị ảnh hưởng */
+    color: #fff; /* để mỗi thẻ a cấp 1 có màu trắng thôi */
+    text-transform: uppercase; /* viết hoa tất cả chữ của thẻ a cấp 1*/
+}
+#nav li a{
+    text-decoration: none; /* bỏ gạch chân, mặc định là có gạch chân */
+    line-height: 46px; /* căn giữa chữ, đặt chiều cao khoảng chữ = đúng với thanh header thì nó tự động căn giữa */
+    padding: 0 24px; /* chia khoảng cách giữa các chữ */
+    display: block;
+    /* display: inline-block; cái này để cho vùng sáng khi hover = với header*/
+}
+
+#nav li:hover .subnav{ /*di chuot vao more thi hiện the a cấp 2*/
+    display: block; /* cái này sẽ ghi đè lên display:none ở thẻ nav .subnav do nó mạnh hơn */
+
+}
+
+/* số 1 */#nav > li:hover > a { /* Hover tác động lên thẻ a cấp 1 thôi, làm thuộc tính di chuột đổi màu */
+    color:#000;
+    background-color: #ccc;
+}
+
+
+#nav .subnav{
+    display: none; /* ẩn thẻ a cấp 2 đi */
+    position: absolute; /* để làm thẻ con của thẻ li, phụ thuộc vào vị trí của li */ 
+    top: 100%;/* xài top left để chắc chắn vị trí của thg subnav đúng, ở bài này tuy mặc định nó đã chuẩn nhưng chỉ do trùng hợp và xui xui trình duyệt này đc trình duyệt kia lại ko nên để chắc chắn nó đúng thì fai setup top left*/
+    left: 0; /* top left này lấy chính thẻ cha của nó là thẻ li cấp 1 chứa nó là thẻ more để làm gốc tọa độ. */
+    min-width: 160px; /* cho cái bảng chứa thẻ a cấp 2 bự ra, và để min-width để sau này chữ có dài ra ô nó tự dài theo. */ 
+     background-color:#fff;
+     box-shadow: 0 0 10px rgba(0,0,0,0.3) ; /* để có bóng đổ hiện ra thẻ a cấp 2, để khi mà dính vào trang có màu trắng luôn thì mình vẫn thấy cái bóng đó */
+     
+
+}
+
+/* số 2 */#nav .subnav li:hover{
+    color:#000;
+    background-color: #ccc;
+}
+/* số 1 và số 2 trùng nhau, thay vì phải viết css 2 lần như vậy thì có thể viết như bên dưới, dc hiểu là 2 thẻ sử dụng chung 1 thuộc tính */
+/*  #nav > li:hover > a, 
+    #nav .subnav li:hover a {
+        color:#000;
+        background-color: #ccc;
+}
+*/
+#nav .subnav a{
+    color:#000; /* thẻ a cấp 2 chữ màu đen */
+    padding: 0 12px; /* cho thẻ a cấp 2 chữ thụt ra ngoài 1 chút*/
+    line-height: 38px; /* cho viền của thẻ a cấp 2 mỏng đi 1 chút */
+}
+
+#nav .nav-arrow-down{
+    font-size: 12px; /* mặc định là 16px, do cái icon này là font nên mới xài font size. */
+}
+
+#header .mobile-menu-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* từ position xuống right cần 3 dòng đó để nó hiện nút menu do thẻ nav đã chiếm hết chỗ, nên mình fai cho thg này làm con của header để vị trí của nó ở trên thẻ nav */
+    display: none; /* để trên PC ko hiện nút menu */
+}
+
+#header .mobile-menu-btn,
+#header .search-btn{
+    float: right; /* ban đầu chưa có cái này thì thẻ div sẽ kế thừa kích thước trình duyệt -> box search rộng = trình duyệt luôn
+    nhưng khi có dòng float này thì nó sẽ hủy tính chất kế thừa của thẻ div -> icon search chui lên trên được */
+    padding: 0 21px;  
+}
+
+#header .search-btn:hover{
+    background-color: #f44336; /* tạo màu đỏ cho ô search */
+    cursor: pointer; /* trỏ chuột vào ô search ra hình bàn tay
+                        google: css cursor property để coi cách hình dạng có thể setup được của cursor 
+                        đặt cursor ở đây hoặc trong hover đều được*/
+}
+
+#header .mobile-menu-btn:hover{/* trên mobile hiểu là chạm tay vào là hover*/
+   background-color: #ccc
+}
+
+#header .mobile-menu-btn:hover .menu-icon { /* khi hover vào mobile menu btn thì css lại cho menu icon */
+    color: #000;
+}
+
+#header .menu-icon,
+#header .search-icon{
+    color:#fff;
+    font-size: 20px;
+    line-height: 46px;
+}
+
+
+/* color: #fff!important;
+    background-color: #f44336!important; */
+
+#slider { /* tạo mảng màu đen phía dưới header cho giống trang web thật cho dễ tưởng tượng */
+  margin-top: 46px; /* để khoảng bắt đầu của slider là ngay sau header, ko có dòng này thì slider sẽ an gian lên trùng vị trí header do header đang có thuộc tính position (header đang đè lên slider và màu đen nên mình ko nhận ra */
+  padding-top: 50%; /* khi để thuộc tính này mà để giá trị a% thì kích thước của chiều cao sẽ bằng a% kích thước chiều rộng của chính nó 
+  tại sao biết đặt 50%? -> do trang mẫu mình inspect ảnh mẫu thấy tỉ lệ gốc (tỉ lệ trong ngoặc) có tỉ lệ chiều cao = 1/2 chiều rộng*/ 
+  /* background: url('/asset/img/slider/slider1.jpg') top center / cover no-repeat; đây là cách viết shorthand của background img và background position, coi lại bài background-img, position... có hướng dẫn cách viết  */
+  /* Từ bài 62 sửa thành background bên dưới */
+  background: url('../img/slider/slider1.jpg') top center / cover no-repeat;
+  /* Viết url như này "/asset/img/slider/slider1.jpg" được hiểu là giá trị tuyệt đối nên trường hợp để thư mục asset vào thư mục khác là lỗi ngày
+  --> nên fai viết lại là "../img/slider/slider1.jpg", viết như vầy dc hiểu là link tương đối, 2 dấu chấm đằng trước được hiểu là file style_theband.css sẽ nhảy ra khỏi thư mục css rồi tìm đến thư mục img để tìm hình, còn nếu chỉ có 1 dấu chấm thì nó sẽ tìm file img trong file css luôn -> sẽ lỗi
+  --> trường hợp viết vầy "../../img/slider/slider1.jpg" thì từ file style css nó sẽ nhảy ra folder css rồi nhảy tiếp ra thư mục asset rồi nó mới search folder img */
+  position: relative; /* thẻ này làm thẻ cha rồi thẻ text content làm thẻ con để thẻ con absolute đè lên */
+}
+
+#slider .text-content{
+    position: absolute; /* ko làm vầy thì nội dung content sẽ độn thêm hình làm dày kích thước hình lên, ko đảm bảo chiều cao = 50% chiều rộng nữa, coi khoảng phút 15 của video 41 slider CSS để nghe giải thích lại*/
+    bottom: 47px; /* =0 thì chữ sát mép dưới của hình, rồi cứ + lên khoảng cách hợp lý, 47px là giá trị chính xác có được do soi bên web mẫu*/
+    color:#fff;
+    left:50%;
+    transform: translateX(-50%); 
+    text-align: center;
+    /* left, transform, text-align là để căn giữa, coi video số 41 slider CSS phút 19 để xem hướng dẫn căn giữa  */
+    /* cách 2 để căn giữa là width: 100%; để kích thước box chữ lớn = kích thước trình duyệt*/
+    /* cách 3 để căn giữa: right:0; và left:0; tương đương width:100%; */
+    
+}
+
+#slider .text-heading{
+    font-weight: 500; /* giảm độ dày của chữ chicago, giá trị từ 100 tới 700 tự trải nghiệm */
+    font-size: 24px; /* giá trị này soi từ web mẫu */
+}
+
+#slider .text-description{
+    font-size: 15px; /* giá trị này soi từ web mẫu */
+    margin-top: 25px; /* soi khoảng cách từ trang web mẫu (15+10)px */
+    /* khoảng cách đã giống hoàn toàn rồi, chỉ có chữ là khác do khác font */
+    text-shadow: 0 0 1px #000; /* để cho phần text a night we won't forget dễ nhìn hơn, muốn biết sao dễ nhìn hơn thì coi lại video 62 fix bug khoảng phút thứ 2  */
+}
+
+#content {
+    /* height: 1000px; tạo scroll cho trang    */
+} 
+/* học tới bài 50 thì ko cần cái height 1000 này nữa */
+
+#content .content-section{
+    width: 800px; /* độ rộng của phần bao phủ phần content, soi giá trị trên web mẫu (768 + 16 + 16) */
+    max-width: 100%; /* thêm vào từ bài 54
+    in case màn hình lớn hơn 800px thì web width sẽ là 800px
+    in case màn hình < 800px thì web width sẽ = 100% màn hình */
+    margin-left: auto;
+    margin-right: auto;
+    /* 2 dòng left right bên trên là để căn giữa đoạn văn */
+    /* padding: 64px 0; trên dưới, trái phải */
+    padding: 64px 0 112px; /* học tới bài 50 thì xài cái này, bỏ cái padding ở trên */
+    /* nghĩa là trên, trái phải, dưới */
+    padding-left: 16px;
+    padding-right: 16px;
+    /* padding left right bên trên thêm vào từ bài 54, để fix lỗi còn thừa khoảng trống và cho đoạn văn phần band cách đều 2 bên mép */
+}
+
+#content .section-heading{
+    font-size: 30px; /* soi trên web mẫu để biết font size */
+    font-weight: 500; /* làm mỏng chữ the band lại, giữ phím alt + mũi tên lên xuống sẽ di chuyển thuộc tính lên xuống*/
+    text-align: center;
+    letter-spacing: 4px; /* làm cho khoảng cách của các chữ của chữ the band cách xa nhau 1 chút */
+}
+
+#content .section-sub-heading{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px; /* soi trong web mẫu (10 + 15) */
+    font-style: italic; /* chữ nghiêng */
+    opacity: 0.6; /* làm mờ chữ đi */
+}
+
+#content .about-text{
+    margin-top: 15px;
+    font-size: 15px;
+    text-align: justify; /* căn đều 2 bên văn bản */
+    line-height: 1.4; /* cho mỗi dòng cách xa nhau 1 chút, kinh nghiệm thì tiếng anh 1.4 còn tiếng việt thì 1.6 là vừa */
+}
+
+#content .members-list{
+    margin-top: 31px; /* soi khoảng cách trên web mẫu (32 + 15) */
+    /* từ bài 58 sửa thành 31px */
+    /* khi di chuột vào member list ở inspect trên web, mình thấy nó ko bao trọn các thằng item, names,... lý do là thg item, name,... sử dụng float -> đó là 1 vấn đề khi sử dụng float -> cách khắc phục là sử dụng overflow như bên dưới;  */
+    /* overflow: hidden; đây là cách 1, cách 2 tạo thêm thẻ clear ở cuối phần bị lỗi (ở đây là members-lists đang lỗi) rồi css cho nó (coi ở phần đầu của phần css này) */
+}
+
+#content .member-item{
+    /* float: left; cho 3 hình trên 1 hàng */
+    /* width: calc(100%/3); để tổng độ rộng 3 hình + lại bằng với mép của đoạn văn */
+    /* text-align: center; căn giữa cả ông name và ông hình luôn */
+    /* float và width ko cần dùng nữa do đã viết ở class col vs col-third bên trên -> thêm col vs col-third vào member item */
+    /* text align center ko cần dùng luôn, thay bằng class text-center bên trên  */
+}
+
+
+#content .member-name{
+    font-size: 15px; /* soi trên web */
+   
+}
+
+#content .member-img{
+    margin-top: 15px; /* soi trên web mẫu */
+    width: 154px; /* soi trên web mẫu */
+    /* sử dụng thẻ img thì chỉ cần đặt width or height thôi, ko cần đặt cả 2, chiều còn lại sẽ tự động theo đúng tỉ lệ */
+    border-radius: 4px; /* tạo góc bo tròn cho ảnh */
+}
+
+/* TOUR section */
+.tour-section{
+    background-color: #000; /* đổ background màu đen cho phần tour */
+}
+
+.tickets-list{
+    background-color: #fff;
+    margin-top: 40px; /* tạo khoảng cách giữa list và chữ remember..., 40px là ước lượng*/
+    list-style: none; /* bỏ dấu chấm đằng trước list */
+}
+
+.tickets-list li {  /* CSS cho thẻ li của ticket list */
+    color: #757575; /* tạo màu chữ cho sep, oct,...*/
+    font-size: 15px; /* soi trên web */
+    padding: 11px 16px; /* coi lại video tour ticket css (video 44) phút 10:52 để xem hướng dẫn làm sao ra dc số này, có thể dùng height nhưng bị cái nó ko auto căn giữa chữ, còn dùng padding thì auto căn giữa */
+    border-bottom: 1px solid #ddd; /* tạo đường gạch bên dưới sep, oct,... */
+}
+
+.tickets-list .sold-out{ /* tạo màu cho chữ sold out*/
+    background-color: #f44336;
+    color: #fff;
+    padding: 3px 4px;
+    margin-left: 16px;
+}
+
+.tickets-list .quantity{
+   float: right; /* kéo số 3 qua phải */
+   width: 24px;
+   height: 24px;
+   background-color: #000;
+   color: #fff;
+   border-radius: 50%; /* tạo hình tròn */
+   text-align: center; /* căn giữa theo chiều ngang*/
+   line-height: 24px; /* căn giữa theo chiều dọc -> đặt line height = với chiều cao của nó */
+   margin-top: -3px; /* ko có cái này thì số 3 hơi lệch xuống bên dưới -> căn lại bằng cách này */
+   /* thẻ có float thì được hiều là display: block -> mới đặt được width height và margin số âm (mặc định ban đầu là display inline) -> nếu ko có float trong thẻ này thì mình ko đặt dc width height vs margin âm */
+}
+
+/* Place */
+.place-list{
+    margin-top: 16px; /* tự ước lượng là 32px */
+    /* từ bài 58 sửa từ 32 xuống 16px để phần place cách phần vé 16px sau đó phần hình add thêm 16px nữa */
+    /* margin-left: -8px;
+    margin-right: -8px; */
+    /* left vs right bên trên để 2 bên viền của hình ra được = với mép của thg ticket, do ở place item đã xài padding 8 px nên trái phải sẽ bị thiếu 1 khoảng  */
+    /* bây giờ học tới bài 48 row column layout nên là ko cần dùng margin left right bên trên nữa, mình đã css class row riêng cho nó rồi -> thêm class row vào thg place list */
+    /* padding-bottom: 48px; soi trên web (32 + 16px) để có khoảng cách đối với phần sau  */
+    /* học tới bài 50 bỏ padding bottom */
+}
+
+.place-item{
+    /* float: left; cho 3 hình lên 1 hàng ngang */
+    /* width: calc(100%/3); ko có dòng này thì hình bự quá ko lên 1 hàng được -> 3 hình thì mỗi hình chỉ được rộng 100%/3 */
+    /* padding: 0 8px; tự ước lượng */
+    /* ko cần thg float vs padding như trên nữa do đã viết class col bên trên -> thêm class col vào place item */
+    /* ko cần dùng thg width luôn do đã thay thế = class col third bên trên -> thay thg place item bên html thành col third */
+}
+
+.place-img{
+    width: 100%; /* ko có dòng này thì hình vẫn có thể bự hơn thẻ chứa nó, thêm cái này vào thì hình chỉ có thể bự tối đa = thẻ chứa nó thôi */
+    display: block; /* để bỏ khoảng đen giữa hình và place body, mặc định nó là inline */
+}
+
+.place-img:hover{
+    opacity: 0.6; /* hover vào làm mờ ảnh */
+}
+
+.place-body{
+    background-color: #fff;
+    font-size: 15px; /* soi trên web, duy nhất có thẻ h ko ăn theo do thẻ h có mặc định riêng */ 
+    padding: 16px; /* tự ước lượng */
+}
+
+.place-heading{
+    font-size: 15px;
+    font-weight: 600; /* cho mỏng or dày hơn, 500 thì mỏng hơn */
+}
+
+.place-time{
+    margin-top: 15px; /* soi trên web */   
+    color: #757575; /* cho chữ mờ đi, xài mã màu này or xài opacity 0.6 cũng được */
+}
+
+.place-des{
+    margin-top: 15px; /* soi trên web */
+    line-height: 1.4; /* tiếng việt 1.6 tiếng anh 1.4, cho chữ ở các dòng cách ra 1 chút */
+}
+/* học tới bài 50 rồi mình chuyển 2 thg buy btn này lên trên dùng chung, ko dùng riêng nữa */
+/* .place-buy-btn{
+    color: #fff;
+    background-color: #000;
+    text-decoration: none; /* bỏ gạch chân */
+    /* padding: 11px 16px; tự ước lượng, coi lại video Tour place css (video 45) phút 19: 30 để coi sao ra được số này, cái này là tạo độ rộng cao của cái box */
+    /* display: inline-block; để box ko bị đè lên description */
+    /* margin-top: 15px; soi trên web */
+/* } */ 
+
+/* .place-buy-btn:hover{
+    color: #000;
+    background-color: #ccc;
+} */
+
+/* Contact form */
+.contact-content{
+    margin-top: 48px; /* soi or tự ước lượng */
+}
+
+.contact-info{
+    font-size: 18px;
+    line-height: 1.5; /* tiếng anh khoảng 1.4 1.5 */
+}
+
+.contact-info i[class*="ti-"]{ /* lấy thẻ i trong contact-info chứa tất cả các class bắt đầu = ti- */
+    width: 30px;
+    display: inline-block;
+    /* 2 dòng trên để chữ và icon của contact-info cách nhau ra */
+}
+
+.contact-info a{
+    color: #101aef;
+    opacity: 0.8;
+}
+
+.contact-info a:hover {
+    opacity: 1;
+}
+
+.contact-form{
+    font-size: 15px;
+}
+
+.contact-form .form-control{
+    padding: 10px; /* soi trên web mẫu xem box độ phân giải bao nhiêu rồi ước lượng số này cho bằng*/
+    border: 1px solid #ccc;
+    width: 100%; /* cho box rộng ra */
+    /* outline: none; để bỏ đường outline khi mình click vào, còn thích xài thì cách dùng tương tự border */
+}
+
+/* học tới bài 50 ko cần class submit btn bên dưới nữa, sử dụng chung lun class btn */
+/* .contact-form .form-submit-btn{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000; /* mặc định input có border nhưng border của nó viền khác nên mình sửa lại theo ý mình */
+    /* padding: 11px 16px; */
+    /* float: right; cho box sang bên phải  */
+/*} */
+
+/* map section */
+.map-section img{
+    width: 100%; /* ko có thuộc tính này thì hình ko thay đổi kthuoc khi trình duyệt thay đổi -> làm cho nó có độ rộng = thẻ cha chứa nó */
+}
+
+/* Footer section */
+#footer {
+    padding: 64px 16px;
+    text-align: center;
+}
+
+#footer .social-list{
+    font-size: 20px;
+    
+}
+
+#footer .social-list a{
+    text-decoration: none; /* bỏ gạch chân */
+    color: rgba(0,0,0,0.6);
+}
+
+#footer .copyright a:hover,
+#footer .social-list a:hover{
+    color: rgba(0,0,0,0.3); /* số cuối cùng là opacity */
+}
+
+#footer .copyright{
+    margin-top: 15px;
+    color: rgba(0,0,0,0.6);
+}
+
+#footer .copyright a{
+    color: rgba(0,0,0,0.6); /* thẻ a thì có sẵn khi hover vào thì cursor pointer */
+}
+
+/* Modal section */
+.modal.open{
+    display: flex; /*ko để thg này ở modal mà để ở modal open để bình thường nó ko hiện thg modal lên */
+    /* cần dùng js để bình thường display = none còn click vào thì displex = flex */
+}
+
+.modal{
+    position: fixed;
+    /* cho 4 hướng = 0 như bên dưới để tạo giao diện modal*/
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.3); /* cho lớp modal mờ đi, đây là lớp overlay */
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    /* để modal-container nằm giữa modal thì modal cần có thuộc tính display: flex với align (căn giữa modal container (thằng con) theo chiều dọc) vs justify (căn giữa container theo chiều ngang) như trên */
+    display: none; /* để cho thg modal bình thường ko hiện lên */
+}
+
+.modal-container{
+    background: #fff;
+    width: 600px; /* soi trên web */
+    min-height: 200px; /* sau này nhiều content thì tự khắc nó tăng, cứ đặt min height để cho dễ nhìn thôi */
+    position: relative; /*để thg này làm thg cha cho nút close di chuyển qua góc trên bên phải */
+    max-width: calc(100% - 32px); /*khi thu nhỏ trình duyệt thì nó sẽ cách mỗi bên 16px (2 bên nên - 32 px) thay vì nếu ko có dòng này nó sẽ dính sát trình duyệt nhìn xấu */
+    animation: modalFadein ease 0.5s; /* modalFadein là thuộc tính đã viết ở dưới
+    ease là kiểu chuyển động
+    0.5s là thời gian chạy*/
+}
+
+.modal-header{
+    background: #009688;
+    height: 129px; /* soi trên web */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* display, align, justify bắt chước cách làm của modal */
+    font-size: 30px; /* ước lượng */
+    color: #fff;
+}
+
+.modal-heading-icon {
+    margin-right: 16px; 
+}
+
+.modal-close{
+    position: absolute; /* làm nút close và phần header ko còn khoảng hở */
+    right:0; /* kéo nút close qua bên phải */
+    top:0; /*để chắc chắn nút close ko bị văng ra ngoài */
+    color: #fff;
+    padding: 12px; /* tự ước lượng */
+    cursor: pointer; /* khi hover vào nút close nó đổi thành hình bàn tay */
+    opacity: 0.8; /* làm mờ đi chút */
+}
+
+.modal-close:hover{
+    opacity: 1; /* làm nó rõ lên khi hover vào */
+}
+
+.modal-body{
+    padding: 16px; /* cho phần body ko bị dính sát mép */   
+}
+
+.modal-label{
+    display: block; /* để label vs phần text xuống hàng, do mặc định thằng text đang là inline (cùng hàng)-block (biết được do soi trên web) nên cho thằng còn lại thành block là xong */
+    font-size: 15px;
+    margin-bottom: 8px; /*tự ước lượng*/
+
+}
+
+.modal-input{
+    border: 1px solid #ccc;
+    width: 100%; /* cho box dài ra */
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 26px; /*tự ước lượng*/
+}
+
+#buy-tickets{
+    background: #009688;
+    border: none;
+    color: #fff;
+    width: 100%;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 18px;
+    cursor: pointer;
+}
+
+#buy-tickets:hover{
+    opacity: 0.8; /*hover vào cho nó mờ mờ tí cũng tạo cảm giác hover rồi, ko cần làm nhiều bước giống trên web mẫu */
+}
+
+.modal-footer{
+    padding: 16px;
+    text-align: right; /*kéo qua phải */
+}
+
+.modal-footer a{
+    color: #2196F3;
+}
+
+/* Phần hiệu ứng bật modal trượt từ trên xuống */
+@keyframes modalFadein{
+    from{
+        opacity: 0; /* ban đầu cho nó mờ mờ sau đó mới cho rõ lên */
+        transform: translateY(-200px); /* làm CSS thuộc tính này vào phần modal-container để thấy được bảng nó sẽ đi từ đâu, thấy -200px là hợp lý nên đặt nó là vị trí from 
+        X chiều ngang, Y chiều dọc*/
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Phần responsive */
+
+/* Update description:
+- Đổi px thành em ở các breakpoint các thiết bị, dùng convert px to em online trên gg để ra mấy số đó
+*/
+
+/* PC */
+/* @media (min-width: 1024px){ */
+@media (min-width: 64em){
+
+} 
+
+/* Tablet and mobile */
+/* các nút bấm trong tablet nên có độ cao khoảng từ 42px trở lên để người dùng dễ bấm */
+/* @media (max-width: 1023px){ */
+@media (max-width: 63.9375em){
+    .btn{
+        padding:15px 16px; /* để nút bấm buy tickets trên ipad bự ra */
+    }
+
+    .contact-form .form-control{
+        padding: 15px; /* để chỗ điền form name email trên ipad bự ra */
+        font-size: 16px; /* cho name, email trong khung chỗ contact bự hơn */
+    }
+
+    #footer .social-list {
+        font-size: 48px; /* để các icon facebook,... ở footer bự ra */
+    }
+
+    #footer .social-list a {
+        margin: 0 8px; /* để icon footer cách nhau xa chút */
+    }
+
+    #footer .copyright a {
+        padding: 12px 0; /* để phần link dưới footer cách xa tí*/
+        display: inline-block; /* cho cái link đẩy xuống chút xíu */
+        /* ko có dòng inline block này thì link ko cách icon được do thẻ này đang là inline nên padding thì nó ko chạm được thg trên nên ko di chuyển cách xa xuống dưới dc, cứ thử tắt inline block và thay đổi padding sẽ ko thấy link di chuyển */
+    }
+
+    #nav .subnav a {
+        padding: 5px 12px; /* để submenu của chữ more: media,... rộng lên */
+    }
+
+    .contact-info {
+        line-height: 2; /* cho các chữ trong phần contact (chicago, phone,...) cách dòng ra thêm */
+    }
+
+    .contact-submit-btn{
+        font-size: 17px; /* cho nút send trên iphone bự hơn */
+    }
+}
+
+/* Tablet */
+/* các nút bấm trong tablet nên có độ cao khoảng từ 42px trở lên để người dùng dễ bấm */
+/* @media (min-width: 740px) and (max-width: 1023px){ */
+@media (min-width: 46.25em) and (max-width: 63.9375em){
+
+} 
+
+/* Mobile */
+/* @media (max-width: 739px){ */
+@media (max-width: 46.1875em){
+    .s-full-width,
+    #content .s-col-full{
+        width: 100% !important;
+    }
+
+    .s-mt-8{
+        margin-top: 8px !important;
+    }
+
+    #header{
+        overflow:hidden;
+    }
+
+    #header .mobile-menu-btn{
+        display: block; /* hiển thị nút menu trên mobile */
+    }
+
+    #header .search-btn{
+        display: none; /* ẩn nút search trên mobile */
+    }  
+
+    #nav{
+        display: block; /* để khoảng bao menu (home, tour,...) bự hơn để người dùng chỉ cần ấn bên ngoài là ăn, ko cần ấn chính xác chữ trong menu */
+        /* nhưng khi viết vầy thì ông nav chiếm hết chỗ của ông menu button -> làm mất nút menu -> dùng thuộc tính position để làm nút menu ở trên nav */
+    }
+
+    #nav li a{
+        padding: 1px 24px; /* cho các thẻ trong menu (tour,...) rộng = 48 px luôn */
+    }
+    
+    #nav > li {
+        display: block;   /* css cũ đang là inline block để thành hàng ngang, giờ chuyển thành block cho thành hàng dọc */
+        
+    }
+    
+    #nav > li:first-child{
+        display: inline-block; /* để thẻ ôm chữ home nhỏ lại, chỉ cho những thg khác (tour,...) bự thôi */
+    }
+    
+    #nav .subnav{
+        position: initial; /*là giá trị mặc định, để hiện submenu khi bấm vào more, ban đầu nó đang là position absolute trên PC, giờ bỏ cái đó đi thì nó mới hiện tren giao diện mobile, trên mobile thì ko cần dùng position absolute */
+        background-color: #333;
+    }
+
+    #nav .subnav a{
+        color: #fff;
+        padding: 5px 41px; /* để chữ trong submenu thụt vào, bên PC nó đang padding 12px */
+        /* padding trên dưới để cho cái ô của submenu to lên, do ngón tay mình bự mà ô nhỏ quá khó bấm */
+    }  
+
+     /* #content .member-item { */
+        /* margin-top: 31px; soi ở web mẫu thấy chữ name cách hình 16 + 15px */
+         /* width: 100%;  */
+     /* }  */
+
+    #content .member-img {
+        width: 60%; /* soi trên web mẫu */
+    }
+ 
+    .contact-form {
+        margin-top: 32px; /* cho phần email vs location cách nhau 16px (bài 60 sửa thành 32)*/
+    }
+}
